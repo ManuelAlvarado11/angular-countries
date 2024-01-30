@@ -9,4 +9,8 @@ export class ByCapitalPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  searchByValue(value: string): void {
+    console.log(`Este es el valor a buscar: ${value}`);
+  }
 }
