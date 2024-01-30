@@ -11,5 +11,12 @@
 </div>
 
 <div class="row">
-  <div class="col">Tabla de resultados</div>
+  <div class="col">
+    <hr />
+    <ul>
+      <li *ngFor="let country of countries">
+        {{ country.name.common }} - {{ country.capital[0] }}
+      </li>
+    </ul>
+  </div>
 </div>
