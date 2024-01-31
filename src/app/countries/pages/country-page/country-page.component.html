@@ -1,2 +1,35 @@
-<p>country-page works!</p>
-<h2>{{ country?.capital }}</h2>
+<div *ngIf="country; else Alert">
+  <div class="row">
+    <div class="col-12">
+      <h2>{{ country.name.common }}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera:</h3>
+      <img
+        [src]="country.flags.svg"
+        [alt]="country.name.common"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col">
+      <h3>Informacion:</h3>
+      <div class="list-group">
+        <div class="list-group-item">
+          <strong>Poblacion: </strong> {{ country.population | number }}
+        </div>
+        <div class="list-group-item">
+          <strong>Codigo: </strong> {{ country.cca3 }}
+        </div>
+        <div class="list-group-item">
+          <strong>Capital: </strong> {{ country.capital }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #Alert>
+  <div class="alert alert-info">Espere por favor</div>
+</ng-template>

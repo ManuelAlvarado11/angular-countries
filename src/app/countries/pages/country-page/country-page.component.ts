@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs';
 })
 export class CountryPageComponent implements OnInit {
   public id: string = '';
-  public country: Country | null = null;
+  public country?: Country | null;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -23,11 +23,8 @@ export class CountryPageComponent implements OnInit {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.countriesService.searchById(id)))
       .subscribe((country) => {
-        this.country = country;
-
-        if (!this.country) return this.router.navigateByUrl('');
-
-        return;
+        if (!country) return this.router.navigateByUrl('');
+        return (this.country = country);
       });
   }
 }
