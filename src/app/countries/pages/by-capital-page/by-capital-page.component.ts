@@ -14,7 +14,7 @@ export class ByCapitalPageComponent implements OnInit {
   ngOnInit(): void {}
 
   searchByValue(value: string): void {
-    this.countriesService.searchCapital(value).subscribe((res) => {
+    this.countriesService.searchByCapital(value).subscribe((res) => {
       this.countries = res;
     });
   }
