@@ -9,13 +9,16 @@ import { Country } from '../../interfaces/country';
 })
 export class ByCapitalPageComponent implements OnInit {
   public countries: Country[] = [];
+  public isLoading: boolean = false;
   constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {}
 
   searchByValue(value: string): void {
+    this.isLoading = true;
     this.countriesService.searchByCapital(value).subscribe((res) => {
       this.countries = res;
+      this.isLoading = false;
     });
   }
 }
