@@ -10,9 +10,14 @@ import { Country } from '../../interfaces/country.interface';
 export class ByCapitalPageComponent implements OnInit {
   public countries: Country[] = [];
   public isLoading: boolean = false;
+  public initialValue: string = '';
+
   constructor(private countriesService: CountriesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byCapital.countries;
+    this.initialValue = this.countriesService.cacheStore.byCapital.term;
+  }
 
   searchByValue(value: string): void {
     this.isLoading = true;
