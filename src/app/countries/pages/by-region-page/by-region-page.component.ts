@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { Country } from '../../interfaces/country';
+import { Country } from '../../interfaces/country.interface';
 
-type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
 @Component({
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
