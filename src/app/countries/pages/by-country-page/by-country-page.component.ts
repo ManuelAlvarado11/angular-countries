@@ -9,9 +9,14 @@ import { Country } from '../../interfaces/country.interface';
 })
 export class ByCountryPageComponent implements OnInit {
   public countries: Country[] = [];
+  public initialValue: string = '';
+
   constructor(private countriesService: CountriesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byCountry.countries;
+    this.initialValue = this.countriesService.cacheStore.byCountry.term;
+  }
 
   searchByValue(value: string): void {
     this.countriesService.searchByName(value).subscribe((res) => {

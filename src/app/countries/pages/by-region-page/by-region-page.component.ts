@@ -18,9 +18,13 @@ export class ByRegionPageComponent implements OnInit {
   ];
   public regionSelected?: Region;
   public countries: Country[] = [];
+
   constructor(private countriesService: CountriesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byRegion.countries;
+    this.regionSelected = this.countriesService.cacheStore.byRegion.region;
+  }
 
   searchByValue(region: Region): void {
     this.regionSelected = region;
